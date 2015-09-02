@@ -1,0 +1,45 @@
+"git init" is used to create a repository
+
+"git status" tells us the state of our working directory
+
+"git add ." adds all files in the working directory to the staging directory. 
+"git add filename" adds this specific file to the staging directory.
+
+"git commit" saves a version to the repository. Now the file is in version control
+"git commit -a" adds the file to the staging directory and at the same time makes the commit.
+"git commit -a -m "message" adds and commits the file together with the necessary commit message
+
+"git branch" shows the branches within the working directory
+"git branch filename" creates a new branch
+
+"git log" shows the changes of the files in the repository and all versions. 
+"git log --oneline" shows a short version of this log
+
+"git diff" shows the differences in detail between the files in the repository.
+To compare the differences between two files type "git diff hash1 hash2", by copying the hash-information ("ID") of the log output. 
+
+"git merge branch_name" merges changes of one branch into the other. Make the merge from that directory, to (!) where the merge has to be adapted. When you merge two different versions of a file conflicts may occur, that git automatically shows. The merge is only possible when you fix them. Then save and commit the file. 
+
+GO BACK IN TIME
+To call a version of the past work you have to checkout with the hash of that version. checkout creates a HEAD-signal to point to the requested version, whether it is a directory or a specific file. With checkout hash we "visit" an older commit.
+"git checkout ee48e26" calls the version with this hash and moves it in to the working directory. If you open it, you will see the file as it was in this version. If you checkout again to master, you get back the final version again. 
+
+clear löscht die bisherigen Befehle von der Konsole
+
+UNDO
+To replace a single file with an older version use 
+"git checkout hash filename". The file ist now the head and last version. The old version before is still in the timeline
+To undo an entire commit, "git revert hash". Even then: all the older stuff is still in the log. 
+"git reset" really DELETES versions and drops the files from your log - handle with care. Type "git reset hash --mode". Modes are HARD (completely drops all tracked changes SINCE the specified commit hash), MIXED (drops changes from repository and staging, but leaves them in working directory), SOFT (drops changes from repo, leaves them in staging and working directory).
+
+
+Working on a REMOTE repository (online):
+push, pull, clone
+
+git clone downloads a repository from a ressource; it is the same like you create a repository with init on your desktop machine
+
+"git remote add origin "https://github.com/peterhsprenger/git-test.git" 
+adds the current local repository to an (already configured) remote git directory
+
+"git push -u origin master" finally pushes the files of the local git to the remote server
+
