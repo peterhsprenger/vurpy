@@ -12,8 +12,8 @@ from pip._vendor.cachecontrol.controller import URI
 
 dnb_metadata = dict()           # in diesem Dictionary werden die ISBNs als Key mit der DNB-ID als Value gespeichert
 
-inputfile = 'F:/VLBGoldFiles/sourcefiles/clean9783647.txt'
-outputfile = 'F:/VLBGoldFiles/resultfileswithsachgruppen/isbnlist9783647.txt'
+inputfile = 'F:/VLBGoldFiles/sourcefiles/clean97838470.txt'
+outputfile = 'F:/VLBGoldFiles/resultfileswithsachgruppen/isbnlist97838470.txt'
 
 def extract_data_from_dnb_download_files(source):
     fh = open(source)
@@ -60,7 +60,7 @@ def extract_data_from_dnb_download_files(source):
             ddc = []
             metadata.append(ddc)
         try : 
-            toc = re.findall('tableOfContents rdf:resource="http://d-nb\.info/([0-9X/]+)', line)
+            toc = re.findall('tableOfContents rdf:resource="http://d-nb\.info/([0-9X-/]+)', line)
             metadata.append(toc)
         except : 
             toc = []
@@ -142,7 +142,7 @@ def print_and_save_dictionary_items(dictionary):
             print '7 - sachgruppen: ', v[7]
             print 
             
-            # mit dieser Methode werden die Daten ausserdem in eine Datei ausgegeben
+            # mit dieser Methode werden die Daten in eine für Escel lesbare CSV Datei ausgegeben
             datatowrite = k + '|' + str(v[0]) + '|' + str(v[1]) + '|' + str(v[2]) + '|' + str(v[3]) + '|' + str(v[4]) + '|' + str(v[5]) + '|' + str(v[6]) + '|' + str(v[7]) + '\n'
             results.write(datatowrite)
         except:
