@@ -1,0 +1,1 @@
+{'4020717-1': ['Gesprochene Sprache\n'], '4011882-4': ['Deutschland\n'], '4065109-5': ['Weimarer Republik\n'], '4066438-7': ['Wirtschaftsentwicklung\n']}
